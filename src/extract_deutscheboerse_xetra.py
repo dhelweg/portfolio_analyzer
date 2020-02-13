@@ -5,7 +5,7 @@ import xlrd
 from toolbox import append_df_to_excel
 
 api_host = 'http://api.developer.deutsche-boerse.com/prod/xetra-public-data-set/1.0.0/'
-api_key = 'insert_key'
+api_key = 'INSERT_API_KEY from https://console.developer.deutsche-boerse.com/projects'
 function_headers = {'X-DBP-APIKEY': api_key}
 
 market = 'xetra'
@@ -13,8 +13,8 @@ market = 'xetra'
 
 project_space_dir = r'C:\dev\git\portfolio_analyzer'
 
-excel_file_in = project_space_dir+'\data\in.xlsx'
-excel_file_out= project_space_dir+'\data\result.xlsx'
+excel_file_in = project_space_dir+r'\data\in.xlsx'
+excel_file_out= project_space_dir+r'\data\result.xlsx'
 
 ###load transaction list###
 transactions = pd.read_excel (excel_file_in,
@@ -29,7 +29,7 @@ if analysis_date.weekday() == 6:
 elif analysis_date.weekday() == 5:
     analysis_date = analysis_date - datetime.timedelta(days=1)
 analysis_date_str = str(analysis_date)
-analysis_date_str = '2020-02-07'
+#analysis_date_str = '2020-02-07'
 
 ###only start process, if data is not yet persisted in excel###
 exists = 0
