@@ -95,6 +95,8 @@ else:
     result['buy_date'] = result['buy_date'].astype('datetime64[h]')
     result['current_date'] = result['current_date'].astype('datetime64[h]')
     result['holding_period'] = (result['current_date']-result['buy_date'])
+    result['performance_pct'] = (result['current_volume']/result['buy_volume'])-1
+    result['performance_total'] = (result['current_volume']-result['buy_volume'])
 
     ###filter out "empty" rows and forbid timetravel###
     result = result[result.buy_price.notnull()]
